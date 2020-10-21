@@ -1,7 +1,7 @@
 import React, { Component, Fragment, useState, useEffect } from "react";
 import { Switch, Route, NavLink, useHistory } from "react-router-dom";
 import TheContext from './TheContext';
-import Home from "./components/home/Home";
+import Home from "./components/Home"
 import NotFound from "./components/404/NotFound.js";
 import SignUp from "./components/auth/SignUp";
 import LogIn from "./components/auth/LogIn";

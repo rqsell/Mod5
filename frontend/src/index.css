@@ -24,3 +24,44 @@ nav a {
   padding: 20px;
   margin: 5px;
 }
+.goaldesc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+.tanAddGoal {
+  display: flex;
+  flex-direction: row;
+  margin-left: 10vw;
+}
+.vanillaForm {
+  display: flex;
+  flex-direction: column;
+  margin-top: -10vh;
+  width: 50vw;
+}
+.vanillaForm label {
+  font-family: "Open Sans", sans-serif;
+}
+.vanillaForm select {
+  font-family: "Open Sans", sans-serif;
+  border-color: darkseagreen;
+}
+.vanillaForm input {
+  border-color: darkseagreen;
+}
+.vanillaForm button {
+  font-family: "Open Sans", sans-serif;
+  color: rgb(77, 92, 77);
+  background-color: darkseagreen;
+}
+#addGoalButton {
+  width: 20vw;
+  border-radius: 2%;
+  border: black solid 1px;
+  font-family: "Open Sans", sans-serif;
+  color: rgb(77, 92, 77);
+  background-color: darkseagreen;
+}
