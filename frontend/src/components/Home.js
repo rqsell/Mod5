@@ -1,10 +1,25 @@
 import React, { Component, useState, useEffect } from 'react';
 import actions from '../api'
+import ShowList from "./ShowList"
 
 
 
 const Home = (props) => {
   const [store, setStore] = useState("");
+  const [list, setList] = useState([]);
+  
+  useEffect(() => {
+    async function getList() {
+      let res = await actions.getList();
+      if (res) {
+        console.log(res);
+        setList(res.data.list);
+      } else {
+        {alert("Sign your butt in!")}
+      }
+    }
+    getList();
+  }, []);
   async function handleSubmit(e) {
     e.preventDefault();
     // let res = await axios.post(`http://localhost:5000/api/AddAGoal`, {
@@ -35,6 +50,7 @@ const Home = (props) => {
             <button id="addGoalButton">Add Goal</button>
           </form>
           </section>
+          <ShowList list ={list}/>
           </div>
   )
 }

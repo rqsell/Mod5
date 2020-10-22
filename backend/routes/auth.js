@@ -21,7 +21,17 @@ router.post('/signup', (req, res, next) => {
     });
 });
 
-
+router.get("/GetList", verifyToken, (req, res, next) => {
+  jwt.verify(req.token, "secretkey", (err, authData) => {
+    if (err) {
+      res.status(403).json(err);
+    } else {
+      List.find({ userId: authData.user._id }).then((list) => {
+        res.json({ list });
+      });
+    }
+  });
+});
 router.get('/user', verifyToken, (req, res, next) => {
   jwt.verify(req.token, 'secretkey', (err, authData) => {
     if(err) {
