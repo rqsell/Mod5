@@ -11,8 +11,8 @@ const session = require('express-session');
 const passport = require('./config/passport');
 
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/deploymentExample'
-console.log('Connecting DB to ', MONGODB_URI)
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/beccabase";
+console.log("Connecting DB to ", MONGODB_URI);
 
 mongoose
   .connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })

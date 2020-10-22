@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
+const List = require ('../models/List')
 const passport = require('../config/passport');
 const jwt = require('jsonwebtoken');
 
@@ -56,7 +57,21 @@ function isAuth(req, res, next) {
   req.isAuthenticated() ? next() : res.status(401).json({ msg: 'Log in first' });
 }
 
-
+router.post("/AddAList", verifyToken, (req, res) => {
+  jwt.verify(req.token, "secretkey", (err, authData) => {
+    if (err) {
+      res.status(403).json(err);
+    } else {
+      // res.status(200).json(authData.user)
+      console.log(authData.user, "yolo");
+      let list = req.body;
+     
+      List.create(list).then((list) => {
+        res.json({ list });
+      });
+    }
+  });
+});
 
 // Verify Token
 function verifyToken(req, res, next) {

@@ -35,6 +35,9 @@ const actions = {
   logOut: async () => {
     window.localStorage.removeItem('token')
     return await API.get('/logout', resetHead())
+  },
+  addalist: async (data) => {
+    return await API.post("/AddAList", data, resetHead());
   }
 };
 
