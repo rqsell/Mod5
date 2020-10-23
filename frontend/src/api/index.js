@@ -35,7 +35,13 @@ const actions = {
   logOut: async () => {
     window.localStorage.removeItem('token')
     return await API.get('/logout', resetHead())
-  }
+  },
+  addalist: async (data) => {
+    return await API.post("/AddAList", data, resetHead());
+  },
+  getList: async (list) => {
+    return await API.get(`/GetList`, resetHead());
+  },
 };
 
 API.interceptors.response.use((response) => response, (error) => { 
