@@ -13,7 +13,7 @@ const Home = (props) => {
       let res = await actions.getList();
       if (res) {
         console.log(res);
-        setList(res.data.list);
+        setList(res.data?.list);
       } else {
         {alert("Sign your butt in!")}
       }
@@ -22,7 +22,7 @@ const Home = (props) => {
   }, []);
   async function handleSubmit(e) {
     e.preventDefault();
-    // let res = await axios.post(`http://localhost:5000/api/AddAGoal`, {
+   
 
     let res = await actions.addalist({
       store: store,

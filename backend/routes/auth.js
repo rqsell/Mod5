@@ -75,7 +75,7 @@ router.post("/AddAList", verifyToken, (req, res) => {
       // res.status(200).json(authData.user)
       console.log(authData.user, "yolo");
       let list = req.body;
-     
+      list.userId = authData.user._id;
       List.create(list).then((list) => {
         res.json({ list });
       });
