@@ -39,8 +39,8 @@ const actions = {
   addalist: async (data) => {
     return await API.post("/AddAList", data, resetHead());
   },
-  getList: async (list) => {
-    return await API.get(`/GetList`, resetHead());
+  getList: async (goal) => {
+    return await API.get("/GetList", resetHead());
   },
 };
 
