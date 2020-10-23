@@ -42,6 +42,9 @@ const actions = {
   getList: async (goal) => {
     return await API.get("/GetList", resetHead());
   },
+  getListDetails: async (listid) => {
+    return await API.get(`/GetList/${listid}`, resetHead());
+  },
 };
 
 API.interceptors.response.use((response) => response, (error) => { 
