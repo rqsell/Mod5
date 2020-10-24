@@ -61,6 +61,17 @@ router.get('/logout', (req, res, next) => {
   req.logout();
   res.status(200).json({ msg: 'Logged out' });
 });
+router.get("/GetList/:id", verifyToken, (req, res, next) => {
+  jwt.verify(req.token, "secretkey", (err, authData) => {
+    if (err) {
+      res.status(403).json(err);
+    } else {
+      List.findById(req.params.id).then((list) => {
+        res.json({ list });
+      });
+    }
+  });
+});
 
 
 function isAuth(req, res, next) {

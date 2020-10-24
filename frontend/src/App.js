@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from "react";
 import { Switch, Route, NavLink, useHistory } from "react-router-dom";
 import TheContext from './TheContext';
 import Home from "./components/Home"
+import AddItems from "./components/AddItems"
 import NotFound from "./components/404/NotFound.js";
 import SignUp from "./components/auth/SignUp";
 import LogIn from "./components/auth/LogIn";
@@ -71,7 +72,11 @@ const App = () => {
           path="/profile"
           render={(props) => <Profile {...props} />}
         />
-
+<Route
+          exact
+          path="/list/:listid"
+          render={(props) => <AddItems {...props} />}
+        />
         <Route component={NotFound} />
       </Switch>
       {!user && <GoogleAuth setUser={setUser} />}
