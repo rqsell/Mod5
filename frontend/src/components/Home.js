@@ -7,7 +7,7 @@ import ShowList from "./ShowList"
 const Home = (props) => {
   const [store, setStore] = useState("");
   const [list, setList] = useState([]);
-  
+  const [open, setOpen] = useState(false);
   useEffect(() => {
     async function getList() {
       let res = await actions.getList();
@@ -33,7 +33,12 @@ const Home = (props) => {
   
   return( 
 <div>
-     <section className="tanAddGoal">
+<div className= 'intro'>
+<h1> Get It</h1>
+<h2> Here at Get It we believe in making sure that when you make the trek to go to the store you get everything you came for. Start the process by clicking the logo below</h2>
+</div>
+<img src ="./GetIt.png"  className= 'logo'onClick={() => setOpen(!open)}/>
+     <section className="tanAddGoal"  id={open ? "clickedmenu" : ""}>
           <form
             onSubmit={handleSubmit}
             style={{ padding: "80px" }}
@@ -47,7 +52,7 @@ const Home = (props) => {
               name="Name"
             />
            
-            <button id="addGoalButton">Add Goal</button>
+            <button id="addGoalButton">Create List</button>
           </form>
           </section>
           <ShowList list ={list}/>
