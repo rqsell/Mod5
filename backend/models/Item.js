@@ -7,7 +7,7 @@ const itemSchema = new Schema(
             type: Schema.Types.ObjectId,
             ref: "User",
         },
-        listIds: [
+        listid: [
             {
                 type: Schema.Types.ObjectId,
                 ref: "Item",

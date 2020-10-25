@@ -34,6 +34,11 @@ router.get("/GetList", verifyToken, (req, res, next) => {
     }
   });
 });
+
+
+
+
+
 router.get('/user', verifyToken, (req, res, next) => {
   jwt.verify(req.token, 'secretkey', (err, authData) => {
     if (err) {
@@ -45,6 +50,21 @@ router.get('/user', verifyToken, (req, res, next) => {
         res.status(200).json(user)
       }).catch(err => res.status(500).json(err))
 
+    }
+  });
+});
+
+
+router.post("/getAllItems", verifyToken, (req, res, next) => {
+  console.log(req.body, "debug 3");
+  jwt.verify(req.token, "secretkey", (err, authData) => {
+    if (err) {
+      res.status(403).json(err);
+    } else {
+      Item.find({ listId: req.body.listid }).then((items) => {
+        console.log(items, "debug 4");
+        res.json({ items });
+      });
     }
   });
 });
@@ -63,6 +83,11 @@ router.get('/logout', (req, res, next) => {
   req.logout();
   res.status(200).json({ msg: 'Logged out' });
 });
+
+
+
+
+
 router.get("/GetList/:id", verifyToken, (req, res, next) => {
   jwt.verify(req.token, "secretkey", (err, authData) => {
     if (err) {
@@ -95,6 +120,11 @@ router.post("/AddAList", verifyToken, (req, res) => {
     }
   });
 });
+
+
+
+
+
 
 router.post("/AddItem", verifyToken, (req, res) => {
   jwt.verify(req.token, "secretkey", (err, authData) => {

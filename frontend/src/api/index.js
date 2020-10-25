@@ -42,6 +42,11 @@ const actions = {
   additem: async (data) => {
     return await API.post("/AddItem", data, resetHead());
   },
+
+  getItem: async (data) => {
+    return await API.post("/getAllItems", data, resetHead());
+  },
+
   getList: async (goal) => {
     return await API.get("/GetList", resetHead());
   },

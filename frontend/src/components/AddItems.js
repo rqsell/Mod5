@@ -1,6 +1,7 @@
 
 import React, { Component, useState, useEffect } from 'react';
 import actions from '../api';
+import ShowItem from '../components/ShowItem'
 
 function AddItems(props) {
   const [item, setItem] = useState([]);
@@ -28,7 +29,7 @@ function AddItems(props) {
 
   return (
     <div>
-      <section className="tanAddGoal">
+      <section className="twotanAddGoal">
         <form
           onSubmit={handleSubmit}
           style={{ padding: "80px" }}
@@ -51,6 +52,7 @@ function AddItems(props) {
           <button id="addGoalButton">Add Item</button>
         </form>
       </section>
+      <ShowItem {...props} />
     </div>
   );
 }

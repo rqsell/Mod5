@@ -63,6 +63,17 @@ nav a {
   color: rgb(77, 92, 77);
   background-color: darkseagreen;
 }
+
+
+
+.twotanAddGoal{
+
+  display: flex;
+  flex-direction: row;
+  margin-left: 10vw;
+}
+
+
 #clickedmenu{
   display: flex;
   flex-direction: row;
