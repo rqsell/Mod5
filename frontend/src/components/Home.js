@@ -1,6 +1,6 @@
 import React, { Component, useState, useEffect } from 'react';
-import actions from '../api'
-import ShowList from "./ShowList"
+import actions from '../api';
+import ShowList from "./ShowList";
 
 
 
@@ -15,18 +15,18 @@ const Home = (props) => {
         console.log(res);
         setList(res.data?.list);
       } else {
-        {alert("Sign your butt in!")}
+        { alert("Sign your butt in!") }
       }
     }
     getList();
   }, []);
   async function handleSubmit(e) {
     e.preventDefault();
-   
+
 
     let res = await actions.addalist({
       store: store,
-     
+
     });
 
   }
