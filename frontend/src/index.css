@@ -64,7 +64,9 @@ nav a {
   background-color: darkseagreen;
 }
 
-
+.itemDisplay{
+  list-style-type: none;
+}
 
 .twotanAddGoal{
 
