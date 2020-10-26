@@ -32,9 +32,7 @@ nav a {
   list-style: none;
 }
 .tanAddGoal {
-  display: flex;
-  flex-direction: row;
-  margin-left: 10vw;
+  display:none;
 }
 .vanillaForm {
   display: flex;
@@ -65,3 +63,31 @@ nav a {
   color: rgb(77, 92, 77);
   background-color: darkseagreen;
 }
+
+.itemDisplay{
+  list-style-type: none;
+}
+
+.twotanAddGoal{
+
+  display: flex;
+  flex-direction: row;
+  margin-left: 10vw;
+}
+
+
+#clickedmenu{
+  display: flex;
+  flex-direction: row;
+  margin-left: 10vw;
+}
+.logo{
+  height: 60vh;
+  width:auto;
+}
+.intro h1{
+font-family:'Raleway', sans-serif;
+}
+.intro h2{
+  font-family: 'Montserrat', sans-serif;
+  }
