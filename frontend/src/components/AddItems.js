@@ -10,10 +10,10 @@ function AddItems(props) {
 
   async function handleSubmit(e) {
     e.preventDefault();
-console.timeLog(props)
+    console.timeLog(props)
 
     let res = await actions.additem({
-    
+
       itemName: item,
       quantity: quantity,
       listId: props.match.params.listid,
@@ -47,10 +47,10 @@ console.timeLog(props)
             required
             name="Name"
           />
-          <button id="addGoalButton">Add Item</button>
+          <button id="addGoalButton">Add item</button>
         </form>
       </section>
-      <ShowItem {...props} item = {item} />
+      <ShowItem {...props} item={item} />
     </div>
   );
 }
