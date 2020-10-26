@@ -16,7 +16,7 @@ import { NotificationContainer, NotificationManager } from 'react-notifications'
 const App = () => {
 
   let [user, setUser] = useState(null)
-
+console.log(process.env)
   useEffect(() => {
     async function getUser() {
       let user = await actions.getUser();
