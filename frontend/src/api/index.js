@@ -42,7 +42,9 @@ const actions = {
   additem: async (data) => {
     return await API.post("/AddItem", data, resetHead());
   },
-
+editanitem: async (data) => {
+  return await API.post("/EditAnItem", data, resetHead());
+},
   getItem: async (data) => {
     return await API.post("/getAllItems", data, resetHead());
   },

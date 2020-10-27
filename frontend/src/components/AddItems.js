@@ -8,6 +8,14 @@ function AddItems(props) {
   const [quantity, setQuantity] = useState();
   const [id, setId] = useState('')
 
+  async function editthisitem(data) {
+    let res = await actions.editanitem(data);
+    let index = data.index;
+    console.log(res);
+    let updatedItems = [...item];
+    updatedItems.splice(index, 1, data);
+    setItem(updatedItems);
+  }
   async function handleSubmit(e) {
     e.preventDefault();
 console.timeLog(props)
@@ -50,7 +58,7 @@ console.timeLog(props)
           <button id="addGoalButton">Add Item</button>
         </form>
       </section>
-      <ShowItem {...props} item = {item} />
+      <ShowItem {...props} item = {item} editthisitem={editthisitem}/>
     </div>
   );
 }
