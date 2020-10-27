@@ -70,6 +70,51 @@ router.post("/getAllItems", verifyToken, (req, res, next) => {
 });
 
 
+router.post("/EditAnItem", verifyToken, (req, res) => {
+  jwt.verify(req.token, "secretkey", (err, authData) => {
+    if (err) {
+      res.status(403).json(err);
+    } else {
+      // res.status(200).json(authData.user)
+      // console.log(authData.user, "yolo");
+      console.log(req.body);
+      let id = req.body.id;
+      delete req.body.id;
+      // goal.userId = authData.user._id;
+      Item.findByIdAndUpdate(id, req.body).then((item) => {
+        console.log("Item has been edited");
+        res.json({ item });
+      });
+    }
+  });
+});
+
+
+router.post("/DeleteAnItem", verifyToken, (req, res) => {
+  jwt.verify(req.token, "secretkey", (err, authData) => {
+    if (err) {
+      res.status(403).json(err);
+    } else {
+      // res.status(200).json(authData.user)
+      // console.log(authData.user, "yolo");
+      console.log(req.body);
+      let item = req.body.id;
+
+      // goal.userId = authData.user._id;
+      Item.findByIdAndDelete(item).then((item) => {
+        console.log("Item has been Deleted");
+        res.json({ item });
+      });
+    }
+  });
+});
+
+
+
+
+
+
+
 
 
 router.post('/login', passport.authenticate('local'), (req, res, next) => {

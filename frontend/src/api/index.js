@@ -42,7 +42,9 @@ const actions = {
   additem: async (data) => {
     return await API.post("/AddItem", data, resetHead());
   },
-
+  editanitem: async (data) => {
+    return await API.post("/EditAnItem", data, resetHead());
+  },
   getItem: async (data) => {
     return await API.post("/getAllItems", data, resetHead());
   },
@@ -53,6 +55,11 @@ const actions = {
   getListDetails: async (listid) => {
     return await API.get(`/GetList/${listid}`, resetHead());
   },
+
+  DeleteItem: async (id) => {
+    return await API.post('/DeleteAnItem', { id }, resetHead())
+  }
+
 };
 
 API.interceptors.response.use((response) => response, (error) => {

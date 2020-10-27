@@ -7,7 +7,26 @@ function AddItems(props) {
   const [item, setItem] = useState([]);
   const [quantity, setQuantity] = useState();
   const [id, setId] = useState('')
+  const [items, setItems] = useState([]);
 
+
+  async function deleteAnItem(id, i) {
+    let res = await actions.DeleteItem(id)
+    console.log(res)
+    let updatedItems = [...items]
+    updatedItems.splice(i, 1)
+    setItems(updatedItems)
+  }
+
+
+  async function editthisitem(data) {
+    let res = await actions.editanitem(data);
+    let index = data.index;
+    console.log(res);
+    let updatedItems = [...item];
+    updatedItems.splice(index, 1, data);
+    setItems(updatedItems);
+  }
   async function handleSubmit(e) {
     e.preventDefault();
     console.timeLog(props)
@@ -47,10 +66,10 @@ function AddItems(props) {
             required
             name="Name"
           />
-          <button id="addGoalButton">Add item</button>
+          <button id="addGoalButton">add item</button>
         </form>
       </section>
-      <ShowItem {...props} item={item} />
+      <ShowItem {...props} item={items} editthisitem={editthisitem} deleteAnItem={deleteAnItem} />
     </div>
   );
 }
