@@ -75,6 +75,7 @@ router.post("/getAllItems", verifyToken, (req, res, next) => {
 router.post('/login', passport.authenticate('local'), (req, res, next) => {
   const { user } = req;
   jwt.sign({ user }, 'secretkey', { expiresIn: '30min' }, (err, token) => {
+    console.log(err, "notworking")
     res.status(200).json({ ...user._doc, token });
   })
 });
