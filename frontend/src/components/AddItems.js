@@ -3,10 +3,22 @@ import React, { Component, useState, useEffect } from 'react';
 import actions from '../api';
 import ShowItem from '../components/ShowItem'
 
+
 function AddItems(props) {
   const [item, setItem] = useState([]);
   const [quantity, setQuantity] = useState();
   const [id, setId] = useState('')
+  const [items, setItems] = useState([]);
+
+
+  async function deleteAnItem(id, i) {
+    let res = await actions.DeleteItem(id)
+    console.log(res)
+    let updatedItems = [...items]
+    updatedItems.splice(i, 1)
+    setItems(updatedItems)
+  }
+
 
   async function editthisitem(data) {
     let res = await actions.editanitem(data);
@@ -14,14 +26,14 @@ function AddItems(props) {
     console.log(res);
     let updatedItems = [...item];
     updatedItems.splice(index, 1, data);
-    setItem(updatedItems);
+    setItems(updatedItems);
   }
   async function handleSubmit(e) {
     e.preventDefault();
-console.timeLog(props)
+    console.timeLog(props)
 
     let res = await actions.additem({
-    
+
       itemName: item,
       quantity: quantity,
       listId: props.match.params.listid,
@@ -35,7 +47,7 @@ console.timeLog(props)
 
   return (
     <div>
-      <section className="twotanAddGoal">
+      {/* <section className="twotanAddGoal">
         <form
           onSubmit={handleSubmit}
           style={{ padding: "80px" }}
@@ -55,11 +67,47 @@ console.timeLog(props)
             required
             name="Name"
           />
-          <button id="addGoalButton">Add Item</button>
+          <button id="addGoalButton">add item</button>
         </form>
+<<<<<<< HEAD
       </section>
       <ShowItem {...props} editthisitem={editthisitem}/>
+=======
+      </section> */}
+      <div>Grocery items</div>
+      <div class="main">
+        <form onSubmit={handleSubmit}>
+          <label class="hello">  </label>
+          <input onChange={(e) => setItem(e.target.value)} type="text" class="write" placeholder="item"></input>
+
+          <span class="enter"></span>
+
+          <label class="hello"> </label>
+          <input onChange={(e) => setQuantity(e.target.value)} type="text" class="write" placeholder="Quantity"></input>
+
+          <div className="box-1">
+
+            <button className="btn btn-one">Add Item</button>
+
+          </div>
+        </form>
+      </div>
+      <table>
+
+        <tr>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </table>
+      <ShowItem {...props} item={items} editthisitem={editthisitem} deleteAnItem={deleteAnItem} />
+>>>>>>> 0fe37f92f74494fb13e71e2bc54457e5f168aa99
     </div>
+
+
+
+
   );
 }
 

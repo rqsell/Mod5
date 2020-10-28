@@ -89,9 +89,38 @@ router.post("/EditAnItem", verifyToken, (req, res) => {
   });
 });
 
+
+router.post("/DeleteAnItem", verifyToken, (req, res) => {
+  jwt.verify(req.token, "secretkey", (err, authData) => {
+    if (err) {
+      res.status(403).json(err);
+    } else {
+      // res.status(200).json(authData.user)
+      // console.log(authData.user, "yolo");
+      console.log(req.body);
+      let item = req.body.id;
+
+      // goal.userId = authData.user._id;
+      Item.findByIdAndDelete(item).then((item) => {
+        console.log("Item has been Deleted");
+        res.json({ item });
+      });
+    }
+  });
+});
+
+
+
+
+
+
+
+
+
 router.post('/login', passport.authenticate('local'), (req, res, next) => {
   const { user } = req;
   jwt.sign({ user }, 'secretkey', { expiresIn: '30min' }, (err, token) => {
+    console.log(err, "notworking")
     res.status(200).json({ ...user._doc, token });
   })
 });
