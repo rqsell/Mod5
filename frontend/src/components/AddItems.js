@@ -3,6 +3,7 @@ import React, { Component, useState, useEffect } from 'react';
 import actions from '../api';
 import ShowItem from '../components/ShowItem'
 
+
 function AddItems(props) {
   const [item, setItem] = useState([]);
   const [quantity, setQuantity] = useState();
@@ -46,7 +47,7 @@ function AddItems(props) {
 
   return (
     <div>
-      <section className="twotanAddGoal">
+      {/* <section className="twotanAddGoal">
         <form
           onSubmit={handleSubmit}
           style={{ padding: "80px" }}
@@ -68,9 +69,40 @@ function AddItems(props) {
           />
           <button id="addGoalButton">add item</button>
         </form>
-      </section>
+      </section> */}
+      <div>Grocery items</div>
+      <div class="main">
+        <form onSubmit={handleSubmit}>
+          <label class="hello">  </label>
+          <input onChange={(e) => setItem(e.target.value)} type="text" class="write" placeholder="item"></input>
+
+          <span class="enter"></span>
+
+          <label class="hello"> </label>
+          <input onChange={(e) => setQuantity(e.target.value)} type="text" class="write" placeholder="Quantity"></input>
+
+          <div className="box-1">
+
+            <button className="btn btn-one">Add Item</button>
+
+          </div>
+        </form>
+      </div>
+      <table>
+
+        <tr>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </table>
       <ShowItem {...props} item={items} editthisitem={editthisitem} deleteAnItem={deleteAnItem} />
     </div>
+
+
+
+
   );
 }
 

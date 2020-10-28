@@ -46,8 +46,45 @@ function ShowItem(props) {
         console.log(props)
         return item.map((eachItem, i) => {
             return (
+
+
+
+
                 <div className="itemDisplay">
-                    <li>{eachItem.itemName}</li>
+
+                    <ul>
+                        <li>{eachItem.itemName}</li>
+                        <li>{eachItem.quantity}</li>
+                        <li><button onClick={() => edit(eachItem, i)}>Edit</button></li>
+                        <li><button onClick={() => props.deleteAnItem(eachItem._id, i)}> Delete</button></li>
+
+                        <Modal isOpen={modalIsOpen}>
+                            <form
+                                onSubmit={handleSubmit}
+                                style={{ padding: "80px" }}
+                                class="vanillaForm"
+                            >
+                                <label for="Store">Item Name</label>
+                                <input
+                                    onChange={(e) => setNewItem(e.target.value)}
+                                    type="text"
+                                    required
+                                    name="Name"
+                                />
+                                <label for="Store">Quantity</label>
+                                <input
+                                    onChange={(e) => setQuantity(e.target.value)}
+                                    type="text"
+                                    required
+                                    name="Name"
+                                />
+                                <button id="addGoalButton">Edit Item</button>
+                            </form>
+                        </Modal>
+                    </ul>
+
+
+                    {/* <li>{eachItem.itemName}</li>
                     <li>{eachItem.quantity}</li>
                     <div className="buttonbox">
                         <button onClick={() => props.deleteAnItem(eachItem._id, i)}> Delete</button>
@@ -75,7 +112,7 @@ function ShowItem(props) {
                                 <button id="addGoalButton" >Edit Item</button>
                             </form>
                         </Modal>
-                    </div>
+                    </div> */}
                 </div>
 
             )
