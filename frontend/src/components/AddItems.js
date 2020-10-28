@@ -58,7 +58,7 @@ console.timeLog(props)
           <button id="addGoalButton">Add Item</button>
         </form>
       </section>
-      <ShowItem {...props} item = {item} editthisitem={editthisitem}/>
+      <ShowItem {...props} editthisitem={editthisitem}/>
     </div>
   );
 }

@@ -33,11 +33,18 @@ const Home = (props) => {
   
   return( 
 <div>
-<div className= 'intro'>
-<h1> Get It</h1>
-<h2> Here at Get It we believe in making sure that when you make the trek to go to the store you get everything you came for. Start the process by clicking the logo below</h2>
-</div>
-<img src ="./GetIt.png"  className= 'logo'onClick={() => setOpen(!open)}/>
+<nav>
+  <img src = "./CheckMate.png"  className="checklogo"/>
+</nav>
+<div className= "homebody">
+<article className= "bodytext">
+  That feeling when you are driving home and realize you forgot that one thing you came to the store for really bums us out.
+  <br/>
+  <br/>
+  Check Mate helps you manage your shopping list making sure you get everything you came for.
+</article>
+<article className= "bodytexttwo">
+<button className = "makelist" onClick={() => setOpen(!open)}> Make List<div id="tick-mark"></div></button>
      <section className="tanAddGoal"  id={open ? "clickedmenu" : ""}>
           <form
             onSubmit={handleSubmit}
@@ -56,6 +63,8 @@ const Home = (props) => {
           </form>
           </section>
           <ShowList list ={list}/>
+          </article>
+          </div>
           </div>
   )
 }

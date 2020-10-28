@@ -72,7 +72,7 @@ function ShowItem(props) {
             required
             name="Name"
           />
-          <button id="addGoalButton" >Edit Item</button>
+          <button id="addGoalButton">Edit Item</button>
         </form>
     </Modal>
 </div>

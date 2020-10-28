@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { Switch, Route, NavLink, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import TheContext from './TheContext';
 import Home from "./components/Home"
 import AddItems from "./components/AddItems"
@@ -10,12 +11,14 @@ import Profile from "./components/profile/Profile";
 import actions from "./api/index";
 import GoogleAuth from "./components/auth/GoogleAuth";
 import GoogleAuthLogin from "./components/auth/GoogleAuthLogin";
+import ShowList from "./components/ShowList"
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 
 
 const App = () => {
 
   let [user, setUser] = useState(null)
+  const [open, setOpen] = useState(false);
 console.log(process.env)
   useEffect(() => {
     async function getUser() {
@@ -36,25 +39,8 @@ console.log(process.env)
 
   return (
     <TheContext.Provider value={{ history, user, setUser }}>
+     
 
-      {user?.email}
-      <nav>
-        <NavLink to="/">Home</NavLink>
-
-        {user ? (
-          <Fragment>
-            <NavLink onClick={logOut} to="/">
-              Log Out
-            </NavLink>
-            <NavLink to="/profile">Profile</NavLink>
-          </Fragment>
-        ) : (
-            <Fragment>
-              <NavLink to="/sign-up">Sign Up</NavLink>
-              <NavLink to="/log-in">Log In</NavLink>
-            </Fragment>
-          )}
-      </nav>
       <Switch>
         <Route exact path="/" render={(props) => <Home {...props} />} />
         <Route
@@ -66,6 +52,11 @@ console.log(process.env)
           exact
           path="/log-in"
           render={(props) => <LogIn {...props} setUser={setUser} />}
+        />
+         <Route
+          exact
+          path="/see-list"
+          render={(props) =><ShowList {...props} />}
         />
         <Route
           exact
