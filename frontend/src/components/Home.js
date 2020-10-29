@@ -30,33 +30,33 @@ const Home = (props) => {
     });
 
   }
-  
-  return( 
-<div>
-<div className= 'intro'>
-<h1> Get It</h1>
-<h2> Here at Get It we believe in making sure that when you make the trek to go to the store you get everything you came for. Start the process by clicking the logo below</h2>
-</div>
-<img src ="./GetIt.png"  className= 'logo'onClick={() => setOpen(!open)}/>
-     <section className="tanAddGoal"  id={open ? "clickedmenu" : ""}>
-          <form
-            onSubmit={handleSubmit}
-            style={{ padding: "80px" }}
-            class="vanillaForm"
-          >
-            <label for="Store">Store Name</label>
-            <input
-              onChange={(e) => setStore(e.target.value)}
-              type="text"
-              required
-              name="Name"
-            />
-           
-            <button id="addGoalButton">Create List</button>
-          </form>
-          </section>
-          <ShowList list ={list}/>
-          </div>
+
+  return (
+    <div>
+      <div className='intro'>
+        <h1> Get It</h1>
+        <h2> Here at Get It we believe in making sure that when you make the trek to go to the store you get everything you came for. Start the process by clicking the logo below</h2>
+      </div>
+      <img src="./GetIt.png" className='logo' onClick={() => setOpen(!open)} />
+      <section className="tanAddGoal" id={open ? "clickedmenu" : ""}>
+        <form
+          onSubmit={handleSubmit}
+          style={{ padding: "80px" }}
+          class="vanillaForm"
+        >
+          <label for="Store">Store Name</label>
+          <input
+            onChange={(e) => setStore(e.target.value)}
+            type="text"
+            required
+            name="Name"
+          />
+
+          <button id="addGoalButton">Create List</button>
+        </form>
+      </section>
+      <ShowList list={list} />
+    </div>
   )
 }
 
