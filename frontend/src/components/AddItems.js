@@ -40,6 +40,7 @@ function AddItems(props) {
 
     });
     setItems(res?.data.item)
+
     console.log(items)
 
   }
