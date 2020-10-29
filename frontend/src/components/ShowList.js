@@ -7,8 +7,8 @@ function ShowList(props) {
       return  props.list?.map( (eachname) =>{
         return (
         <div>
-        <Link to={`/list/${eachname._id}`}>
-<h1>{eachname.store}</h1>
+        <Link to={`/list/${eachname._id}`} style={{ textDecoration: "none" }}>
+<h1 className="storename" style={{ textDecoration: "none" }}>{eachname.store}</h1>
 </Link>
         </div>
         )

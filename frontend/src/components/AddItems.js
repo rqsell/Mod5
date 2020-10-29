@@ -39,6 +39,8 @@ function AddItems(props) {
       listId: props.match.params.listid,
 
     });
+    setItems(res?.data.item)
+    console.log(items)
 
   }
 
