@@ -60,8 +60,11 @@ const actions = {
 
   DeleteItem: async (id) => {
     return await API.post('/DeleteAnItem', { id }, resetHead())
-  }
-
+  },
+  deleteFavorite: async() =>
+{
+  return await API.post("/AddDelete", resetHead())
+}
 };
 
 API.interceptors.response.use((response) => response, (error) => {

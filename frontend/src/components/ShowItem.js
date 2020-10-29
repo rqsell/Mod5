@@ -31,8 +31,8 @@ function ShowItem(props) {
         setIndex(i);
     }
     // Add Favorites
-    async function handleAddFavorites(checkeditem) {
-      let res = await actions.addFavorites({ checkeditem });
+    async function handleAddFavorites(checkeditem, checked) {
+      let res = await actions.addFavorites({ checkeditem, checked});
   console.log(res)
       setChecked(res?.data?.favorites);
       console.log(checked)
@@ -53,12 +53,13 @@ function ShowItem(props) {
                         <li>{eachItem.quantity}</li>
                         <li><button onClick={() => edit(eachItem, i)}>Edit</button></li>
                         <li><button onClick={() => props.deleteAnItem(eachItem._id, i)}> Delete</button></li>
-                         <li><input type="checkbox" id="cb2" className="tick" onClick={(e) => {
-                          handleAddFavorites(eachItem._id)}}
-                          /> 
+                         <li> <input type="checkbox" id="cb2" className="tick" onChange={(e) => {
+                          handleAddFavorites(eachItem._id, e.target.checked)}}/></li>
+               
 
-                          <span className="tick"></span></li>
-                    
+                          {/* <span className="tick"></span> */}
+                        
+                          </ul>
                         <Modal isOpen={modalIsOpen}>
                             <form
                                 onSubmit={handleSubmit}
@@ -83,7 +84,7 @@ function ShowItem(props) {
                                 
                             </form>
                         </Modal>
-                    </ul>
+                  
 
 
                     {/* <li>{eachItem.itemName}</li>

@@ -41,16 +41,16 @@
   font-weight: 200;
   color: #CECECE;
   transition: all 0.5s ease;
-  pointer-events: none;
+  /* pointer-events: none; */
 }
-input[type=text]:focus~.hello {
+/* input[type=text]:focus~.hello {
   display:block;
-  color: black;
+  color:pink;
   top: -20px;
   font-size: 14px;
-}
+} */
 input[type=text]:focus~.enter {
-  background-color: #0F1F7A;
+  /* background-color:pink; */
   position: absolute;
   content: ' ';
   height: 1px;
@@ -66,7 +66,7 @@ input[type=text]:focus~.enter {
 textarea, input {
   outline: none;
   border: 0;
-  border-bottom: 1px solid #CECECE;
+  /* border-bottom: 1px solid #CECECE; */
   height: 40px;
   width: 50%;
 }
@@ -103,12 +103,12 @@ div[class*=box] {
   z-index: 1;
   opacity: 0;
   transition: all 0.3s;
-  border-top-width: 1px;
+  /* border-top-width: 1px;
   border-bottom-width: 1px;
   border-top-style: solid;
   border-bottom-style: solid;
   border-top-color: black;
-  border-bottom-color: black;
+  border-bottom-color: black; */
   transform: scale(0.1, 1);
 }
 .btn-one:hover span {
@@ -397,7 +397,7 @@ font-style:italic;
   transition: all 0.5s ease;
   pointer-events: none;
 }
-input[type=text]:focus~.hello {
+/* input[type=text]:focus~.hello {
   display:block;
   color: black;
   top: -20px;
@@ -411,7 +411,7 @@ input[type=text]:focus~.enter {
   right: 45%;
   top: 42px;
   transform: scaleX(5)
-}
+} */
 .enter{
   transition: all ease 0.5s;
   width: 10.1%;
@@ -424,13 +424,13 @@ textarea, input {
   height: 40px;
   width: 50%;
 }
-div[class*=box] {
+/* div[class*=box] {
   height: 33.33%;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 .btn {
   line-height: 50px;
   height: 50px;

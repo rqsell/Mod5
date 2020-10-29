@@ -93,8 +93,8 @@ function AddItems(props) {
       <div>Grocery items</div>
       <div class="main">
         <form onSubmit={handleSubmit}>
-          <label class="hello">  </label>
-          <input onChange={(e) => setItem(e.target.value)} type="text" class="write" placeholder="item"></input>
+        <label class="hello"> </label>
+          <input onChange={(e) => setItem(e.target.value)} type="text" class="write" placeholder="Item"></input>
 
           <span class="enter"></span>
 
