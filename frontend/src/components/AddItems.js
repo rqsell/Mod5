@@ -69,10 +69,6 @@ function AddItems(props) {
           />
           <button id="addGoalButton">add item</button>
         </form>
-<<<<<<< HEAD
-      </section>
-      <ShowItem {...props} editthisitem={editthisitem}/>
-=======
       </section> */}
       <div>Grocery items</div>
       <div class="main">
@@ -102,7 +98,6 @@ function AddItems(props) {
         </tr>
       </table>
       <ShowItem {...props} item={items} editthisitem={editthisitem} deleteAnItem={deleteAnItem} />
->>>>>>> 0fe37f92f74494fb13e71e2bc54457e5f168aa99
     </div>
 
 

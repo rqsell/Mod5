@@ -12,31 +12,44 @@
 .vanillaForm {
   display: flex;
   flex-direction: column;
-  margin-top: -10vh;
+  /* justify-content: center; */
+  align-items: center;
   width: 50vw;
 }
 .vanillaForm label {
-  font-family: "Open Sans", sans-serif;
+  font-family: "raleway";
 }
-.vanillaForm select {
-  font-family: "Open Sans", sans-serif;
-  border-color: darkseagreen;
-}
+
 .vanillaForm input {
-  border-color: darkseagreen;
+  border-color:black;
+  padding:0.5em 3em;
+  border:0.16em solid black;
+  margin:0 0.3em 0.3em 0;
+  width: 60%;
+  box-sizing: border-box;
+  text-decoration:none;
 }
-.vanillaForm button {
-  font-family: "Open Sans", sans-serif;
-  color: rgb(77, 92, 77);
-  background-color: darkseagreen;
-}
+
+
 #addGoalButton {
-  width: 20vw;
-  border-radius: 2%;
-  border: black solid 1px;
-  font-family: "Open Sans", sans-serif;
-  color: rgb(77, 92, 77);
-  background-color: darkseagreen;
+  display:flex;
+  justify-content: center;
+  padding:0.5em 3em;
+  border:0.16em solid black;
+  /* margin:0 0.3em 0.3em 0; */
+  /* margin-left:25%; */
+  box-sizing: border-box;
+  text-decoration:none;
+  text-transform:uppercase;
+  font-family: 'raleway';
+  width: 15%;
+  font-size: 14px;
+  text-align: center;
+  background-color: white;
+  font-weight:400;
+  color:rgb(3, 2, 2);
+  text-align:center;
+  transition: all 0.15s;
 }
 
 .itemDisplay{
@@ -152,11 +165,14 @@ font-family:'Raleway', sans-serif;
     display: flex;
     /* justify-content: space-between; */
     font-family: raleway;
-    font-size: 25px;
+    font-size: 18px;
   }
 .bodytext{
   width: 50%;
   padding-left: 8%;
+}
+.hometext{
+  margin-bottom: 12%;
 }
 .bodytexttwo{
   width: 50%;
@@ -199,7 +215,7 @@ transition: all 0.15s;
   top: 50%;
   height: 50%;
   width: 3px;
-  background-color: black;
+  background-color: #80b6cb;
   content: "";
   transform: translateX(10px) rotate(-45deg);
   transform-origin: left bottom;
@@ -211,8 +227,16 @@ transition: all 0.15s;
   bottom: 0;
   height: 3px;
   width: 100%;
-  background-color: black;
+  background-color: #80b6cb;
   content: "";
   transform: translateX(10px) rotate(-45deg);
   transform-origin: left bottom;
+}
+.storename{
+  font-family: "Raleway";
+  color: black;
+  text-decoration: none;
+}
+.storename:hover{
+font-style:italic;
 }

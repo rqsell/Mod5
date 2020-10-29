@@ -39,7 +39,11 @@ console.log(process.env)
 
   return (
     <TheContext.Provider value={{ history, user, setUser }}>
-     
+     <nav>
+     <Link to = "/">
+  <img src = "./CheckMateBlue.png"  className="checklogo"/>
+  </Link>
+</nav>
 
       <Switch>
         <Route exact path="/" render={(props) => <Home {...props} />} />
