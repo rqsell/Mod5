@@ -33,8 +33,9 @@ function ShowItem(props) {
     // Add Favorites
     async function handleAddFavorites(checkeditem) {
       let res = await actions.addFavorites({ checkeditem });
-  
-      // setChecked(res?.data.fill);
+  console.log(res)
+      setChecked(res?.data?.favorites);
+      console.log(checked)
     }
     const showAllItems = () => {
         console.log(props)
@@ -47,14 +48,17 @@ function ShowItem(props) {
                 <div className="itemDisplay">
 
                     <ul>
-
-                        <input type="checkbox" id="cb2" className="tick" />
-                        <label for="cb2"><div className="tick"></div></label>
+                  
                         <li>{eachItem.itemName}</li>
                         <li>{eachItem.quantity}</li>
                         <li><button onClick={() => edit(eachItem, i)}>Edit</button></li>
                         <li><button onClick={() => props.deleteAnItem(eachItem._id, i)}> Delete</button></li>
+                         <li><input type="checkbox" id="cb2" className="tick" onClick={(e) => {
+                          handleAddFavorites(eachItem._id)}}
+                          /> 
 
+                          <span className="tick"></span></li>
+                    
                         <Modal isOpen={modalIsOpen}>
                             <form
                                 onSubmit={handleSubmit}
@@ -76,7 +80,7 @@ function ShowItem(props) {
                                     name="Name"
                                 />
                                 <button id="addGoalButton">Edit Item</button>
-                               
+                                
                             </form>
                         </Modal>
                     </ul>

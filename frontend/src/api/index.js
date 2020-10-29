@@ -48,7 +48,9 @@ const actions = {
   getItem: async (data) => {
     return await API.post("/getAllItems", data, resetHead());
   },
-
+  addFavorites: async (data) => {
+    return await API.post("/addFavorites", data, resetHead());
+  },
   getList: async (goal) => {
     return await API.get("/GetList", resetHead());
   },

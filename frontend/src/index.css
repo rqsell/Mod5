@@ -191,8 +191,14 @@ text-align: center;
   transition: all 0.15s;
 }
 
-.itemDisplay{
+.itemDisplay li{
   list-style-type: none;
+}
+.itemDisplay ul{
+display: flex;
+justify-content: space-between;
+flex-direction: row;
+font-family: "raleway";
 }
 
 .twotanAddGoal{
@@ -342,15 +348,14 @@ transition: all 0.15s;
   color:white
 }
 #tick-mark {
-  position: relative;
-  display: inline-block;
+/* position:relative; */
   width: 30px;
   height: 30px;
 }
 
 #tick-mark::before {
-  position: absolute;
-  left: 0;
+  /* position: absolute; */
+  /* left: 0; */
   top: 50%;
   height: 50%;
   width: 3px;
@@ -361,9 +366,9 @@ transition: all 0.15s;
 }
 
 #tick-mark::after {
-  position: absolute;
-  left: 0;
-  bottom: 0;
+  /* position: absolute; */
+  /* left: 0;
+  bottom: 0; */
   height: 3px;
   width: 100%;
   background-color: #80b6cb;
