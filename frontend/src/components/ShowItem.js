@@ -4,27 +4,14 @@ import Modal from "react-modal";
 
 
 function ShowItem(props) {
-    const [item, setItem] = useState([])
+    //const [items, setItems] = useState([])
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [newItem, setNewItem] = useState('')
     const [quantity, setQuantity] = useState('')
     const [id, setId] = useState('')
     const [index, setIndex] = useState('')
-    useEffect(() => {
-        async function getItem() {
 
-            let res = await actions.getItem({ listid: props.match.params.listid });
-            if (res) {
-                console.log(res);
-                setItem(res.data?.items);
-            } else {
-                { alert("Sign your butt in!") }
-            }
-        }
-
-        getItem();
-    }, []);
-    console.log(item);
+    //console.log(items);
     async function handleSubmit(e) {
         e.preventDefault();
 
@@ -44,7 +31,7 @@ function ShowItem(props) {
     }
     const showAllItems = () => {
         console.log(props)
-        return item.map((eachItem, i) => {
+        return props.items.map((eachItem, i) => {
             return (
 
 
