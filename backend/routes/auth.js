@@ -166,7 +166,27 @@ router.post("/AddAList", verifyToken, (req, res) => {
     }
   });
 });
+// From Ironfolio
+router.post("/addFavorites", verifyToken, (req, res) => {
+  jwt.verify(req.token, "secretkey", (err, authData) => {
+    if (err) {
+      res.status(403).json(err);
+    } else {
+      User.findByIdAndUpdate(
+        authData.user._id,
+        {
+          $push: { favorites: req.body.checkeditem},
+        },
 
+        { new: true }
+      )
+        .then((user) => {
+          res.status(200).json(user);
+        })
+        .catch((err) => res.status(500).json(err));
+    }
+  });
+});
 
 
 

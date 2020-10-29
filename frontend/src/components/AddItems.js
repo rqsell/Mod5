@@ -9,7 +9,20 @@ function AddItems(props) {
   const [quantity, setQuantity] = useState();
   const [id, setId] = useState('')
   const [items, setItems] = useState([]);
+  useEffect(() => {
+    async function getItem() {
 
+      let res = await actions.getItem({ listid: props.match.params.listid });
+      if (res) {
+        console.log(res);
+        setItems(res.data?.items);
+      } else {
+        { alert("Sign your butt in!") }
+      }
+    }
+
+    getItem();
+  }, []);
 
   async function deleteAnItem(id, i) {
     let res = await actions.DeleteItem(id)
@@ -39,7 +52,13 @@ function AddItems(props) {
       listId: props.match.params.listid,
 
     });
-    
+    console.log(res)
+    console.log(items)
+    let newListOfItems = [...items]
+    newListOfItems.push(res?.data.item)
+    setItems(newListOfItems)
+
+
 
   }
 
@@ -84,7 +103,7 @@ function AddItems(props) {
 
           <div className="box-1">
 
-            <button className="btn btn-one">Add Item</button>
+            <button className="btn btn-one">Add Item?</button>
 
           </div>
         </form>
@@ -98,7 +117,7 @@ function AddItems(props) {
           <th>Delete</th>
         </tr>
       </table>
-      <ShowItem {...props} item={items} editthisitem={editthisitem} deleteAnItem={deleteAnItem} />
+      <ShowItem {...props} items={items} editthisitem={editthisitem} deleteAnItem={deleteAnItem} />
     </div>
 
 

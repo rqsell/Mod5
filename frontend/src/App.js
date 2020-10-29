@@ -19,7 +19,7 @@ const App = () => {
 
   let [user, setUser] = useState(null)
   const [open, setOpen] = useState(false);
-console.log(process.env)
+  console.log(process.env)
   useEffect(() => {
     async function getUser() {
       let user = await actions.getUser();
@@ -39,11 +39,11 @@ console.log(process.env)
 
   return (
     <TheContext.Provider value={{ history, user, setUser }}>
-     <nav>
-     <Link to = "/">
-  <img src = "./CheckMateBlue.png"  className="checklogo"/>
-  </Link>
-</nav>
+      <nav>
+        <Link to="/">
+          <img src="/CheckMateBlue.png" className="checklogo" />
+        </Link>
+      </nav>
 
       <Switch>
         <Route exact path="/" render={(props) => <Home {...props} />} />
@@ -57,17 +57,17 @@ console.log(process.env)
           path="/log-in"
           render={(props) => <LogIn {...props} setUser={setUser} />}
         />
-         <Route
+        <Route
           exact
           path="/see-list"
-          render={(props) =><ShowList {...props} />}
+          render={(props) => <ShowList {...props} />}
         />
         <Route
           exact
           path="/profile"
           render={(props) => <Profile {...props} />}
         />
-<Route
+        <Route
           exact
           path="/list/:listid"
           render={(props) => <AddItems {...props} />}

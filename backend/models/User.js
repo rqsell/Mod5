@@ -7,7 +7,9 @@ const userSchema = new Schema(
     name: String,
     googleId: String,
     imageUrl: String,
+    favorites: [{ type: Schema.Types.ObjectId, ref: "checkeditem" }],
   },
+ 
   {
     timestamps: true,
     versionKey: false,
