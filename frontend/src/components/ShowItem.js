@@ -40,6 +40,9 @@ function ShowItem(props) {
                 <div className="itemDisplay">
 
                     <ul>
+
+                        <input type="checkbox" id="cb2" className="tick" />
+                        <label for="cb2"><div className="tick"></div></label>
                         <li>{eachItem.itemName}</li>
                         <li>{eachItem.quantity}</li>
                         <li><button onClick={() => edit(eachItem, i)}>Edit</button></li>

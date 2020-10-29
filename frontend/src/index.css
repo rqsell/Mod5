@@ -376,3 +376,9 @@ padding: 10px;
 tr:nth-child(odd) {
 background: #EEE;
 }
+
+
+.tick{
+ height: 35vh;
+ width: auto;
+}
