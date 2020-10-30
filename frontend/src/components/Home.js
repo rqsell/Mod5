@@ -45,7 +45,7 @@ const Home = (props) => {
   Check Mate helps you manage your shopping list making sure you get everything you came for.
 </div>
           <div>
-            <button className="makelist" onClick={() => setOpen(!open)}> Make List<div id="tick-mark"></div></button>
+            <button className="makelist" onClick={() => setOpen(!open)}> Make List</button>
             <br />
             <section className="tanAddGoal" id={open ? "clickedmenu" : ""}>
               <form

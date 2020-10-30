@@ -90,10 +90,10 @@ function AddItems(props) {
           <button id="addGoalButton">add item</button>
         </form>
       </section> */}
-      <div>Grocery items</div>
+
       <div class="main">
         <form onSubmit={handleSubmit}>
-        <label class="hello"> </label>
+          <label class="hello"> </label>
           <input onChange={(e) => setItem(e.target.value)} type="text" class="write" placeholder="Item"></input>
 
           <span class="enter"></span>
@@ -101,22 +101,14 @@ function AddItems(props) {
           <label class="hello"> </label>
           <input onChange={(e) => setQuantity(e.target.value)} type="text" class="write" placeholder="Quantity"></input>
 
-          <div className="box-1">
 
-            <button className="btn btn-one">Add Item?</button>
-
+          <div>
+            <button className="addbtn">Add Item</button>
           </div>
+
         </form>
       </div>
-      <table>
 
-        <tr>
-          <th>Item</th>
-          <th>Quantity</th>
-          <th>Edit</th>
-          <th>Delete</th>
-        </tr>
-      </table>
       <ShowItem {...props} items={items} editthisitem={editthisitem} deleteAnItem={deleteAnItem} />
     </div>
 

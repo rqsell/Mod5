@@ -1,4 +1,12 @@
 
+*{
+
+}
+
+
+
+
+
 .goaldesc {
   display: flex;
   flex-direction: column;
@@ -30,7 +38,11 @@
   text-decoration:none;
 }
 .main{
-  position:relative;
+  /* position:relative; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 100px;
 }
 .hello{
@@ -85,10 +97,35 @@ div[class*=box] {
   cursor: pointer;
 }
 .btn-one {
-  margin-top: 30px;
-  color: black;
-  transition: all 0.3s;
-  position: relative;
+  display:inline-block;
+
+padding:0em .2em .5em 1em;
+
+
+border:0.16em solid black;
+
+box-sizing: border-box;
+text-decoration:none;
+text-transform:uppercase;
+font-family: 'raleway';
+font-size: 15px;
+background-color: white;
+font-weight:400;
+color:rgb(3, 2, 2);
+text-align:center;
+transition: all 0.15s;
+}
+
+
+.btn-one:hover{ 
+
+
+
+
+
+
+
+
 }
 .btn-one span {
   transition: all 0.3s;
@@ -111,27 +148,11 @@ div[class*=box] {
   border-bottom-color: black; */
   transform: scale(0.1, 1);
 }
-.btn-one:hover span {
-  letter-spacing: 2px;
-}
-.btn-one:hover::before {
-  opacity: 1;
-  transform: scale(1, 1);
-}
-.btn-one::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  transition: all 0.3s;
-}
-.btn-one:hover::after {
-  opacity: 0;
-  transform: scale(0.1, 1);
-}
+
+
+
+
+
 table,
 th,
 td {
@@ -195,6 +216,7 @@ text-align: center;
   list-style-type: none;
 }
 .itemDisplay ul{
+  align-items: center;
 display: flex;
 justify-content: space-between;
 flex-direction: row;
@@ -329,6 +351,7 @@ font-family:'Raleway', sans-serif;
 }
 .makelist{
 display:inline-block;
+
 padding:0.5em 3em;
 border:0.16em solid black;
 margin:0 0.3em 0.3em 0;
@@ -343,9 +366,12 @@ color:rgb(3, 2, 2);
 text-align:center;
 transition: all 0.15s;
 }
+
+
+
 .makelist:hover{
-  background-color:  RGB(220, 222, 220);
-  color:white
+ background:RGB(222, 222, 222);
+ color: white;
 }
 #tick-mark {
 /* position:relative; */
@@ -439,11 +465,20 @@ textarea, input {
   cursor: pointer;
 }
 .btn-one {
+  font-family: 'Open Sans', sans-serif;
   margin-top: 30px;
   color: black;
   transition: all 0.3s;
   position: relative;
 }
+
+.btn-one:hover{ 
+  background:RGB(222, 222, 222);
+ color: white;
+}
+
+
+
 .btn-one span {
   transition: all 0.3s;
 }
@@ -465,27 +500,7 @@ textarea, input {
   border-bottom-color: black;
   transform: scale(0.1, 1);
 }
-.btn-one:hover span {
-  letter-spacing: 2px;
-}
-.btn-one:hover::before {
-  opacity: 1;
-  transform: scale(1, 1);
-}
-.btn-one::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  transition: all 0.3s;
-}
-.btn-one:hover::after {
-  opacity: 0;
-  transform: scale(0.1, 1);
-}
+
 table,
 th,
 td {
@@ -523,6 +538,74 @@ background: #EEE;
 
 
 .tick{
+margin-top: 0px !important;
  height: 35vh;
- width: auto;
+ width: 20px;
+}
+
+.checkinput{
+  margin-top:10px;
+  height:50px;
+  width: 20px;
+}
+
+
+
+.buttons{
+  display:inline-block;
+
+padding:0.5em 3em;
+border:0.16em solid black;
+margin:0 0.3em 0.3em 0;
+box-sizing: border-box;
+text-decoration:none;
+text-transform:uppercase;
+font-family: 'raleway';
+font-size: 10px;
+background-color: white;
+font-weight:400;
+color:rgb(3, 2, 2);
+text-align:center;
+transition: all 0.15s;
+}
+
+
+.buttons:hover{ 
+  background:RGB(222, 222, 222);
+  color: white;
+}
+
+
+.addbtn{
+  display:inline-block;
+
+  padding:0.5em 3em;
+  border:0.16em solid black;
+  margin:1em 0.3em 0.3em 0;
+  box-sizing: border-box;
+  text-decoration:none;
+  text-transform:uppercase;
+  font-family: 'raleway';
+  font-size: 10px;
+  background-color: white;
+  font-weight:400;
+  color:rgb(3, 2, 2);
+  text-align:center;
+  transition: all 0.15s;
+}
+
+.addbtn:hover{ 
+
+
+
+  background:RGB(222, 222, 222);
+  color: white;
+}
+
+
+.x{
+  font-family: raleway;
+  float: right;
+  top: 0;
+  right: 0;
 }
