@@ -99,7 +99,7 @@ function AddItems(props) {
           <span class="enter"></span>
 
           <label class="hello"> </label>
-          <input onChange={(e) => setQuantity(e.target.value)} type="text" class="write" placeholder="Quantity"></input>
+          <input onChange={(e) => setQuantity(e.target.value)} type="text" class="write" placeholder="quantity"></input>
 
 
           <div>
