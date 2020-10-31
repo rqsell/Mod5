@@ -103,7 +103,7 @@ function AddItems(props) {
 
 
           <div>
-            <button className="addbtn">Add Item</button>
+            <button className="addbtn">Add tem</button>
           </div>
 
         </form>
