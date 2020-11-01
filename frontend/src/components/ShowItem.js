@@ -1,18 +1,22 @@
 import React, { Component, useState, useEffect } from 'react';
 import actions from '../api';
 import Modal from "react-modal";
-
+import TheContext from '../TheContext'
 
 function ShowItem(props) {
-    //const [items, setItems] = useState([])
+    console.log(props)
+    const { user, setUser, history } = React.useContext(TheContext);
     const [modalIsOpen, setModalIsOpen] = useState(false);
+
     const [newItem, setNewItem] = useState('')
     const [quantity, setQuantity] = useState('')
-    const [checked, setChecked] = useState('')
+    const [checked, setChecked] = useState([])
     const [id, setId] = useState('')
     const [index, setIndex] = useState('')
 
-    //console.log(items);
+    console.log(user?.favorites, checked);
+
+
     async function handleSubmit(e) {
         e.preventDefault();
 
@@ -33,13 +37,24 @@ function ShowItem(props) {
     // Add Favorites
     async function handleAddFavorites(checkeditem, checked) {
         let res = await actions.addFavorites({ checkeditem, checked });
-        console.log(res)
-        setChecked(res?.data?.favorites);
-        console.log(checked)
+        console.log(res, setUser)
+        //setChecked(res?.data?.favorites);
+        //console.log(checked)
+        setUser(res?.data)
     }
     const showAllItems = () => {
         console.log(props)
         return props.items.map((eachItem, i) => {
+            console.log(eachItem._id)
+            let isFavorite = false;
+            if (user?.favorites?.includes(eachItem._id)) {
+                isFavorite = true;
+            }
+
+
+
+
+
             return (
 
 
@@ -53,7 +68,7 @@ function ShowItem(props) {
                         <li>{eachItem.quantity}</li>
                         <li ><button className="buttons" onClick={() => edit(eachItem, i)}>Edit</button></li>
                         <li ><button className="buttons" onClick={() => props.deleteAnItem(eachItem._id, i)}> Delete</button></li>
-                        <li><input type="checkbox" className="checkinput" onChange={(e) => {
+                        <li><input checked={isFavorite ? true : false} type="checkbox" className="checkinput" onChange={(e) => {
                             handleAddFavorites(eachItem._id, e.target.checked)
                         }} ></input></li>
 

@@ -605,7 +605,8 @@ transition: all 0.15s;
 
 .x{
   font-family: raleway;
-  float: right;
+  /* float: right; */
+  
   top: 0;
   right: 0;
 }
