@@ -7,6 +7,7 @@ function ShowItem(props) {
     console.log(props)
     const { user, setUser, history } = React.useContext(TheContext);
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [allItems, setAllItems] = useState([])
 
     const [newItem, setNewItem] = useState('')
     const [quantity, setQuantity] = useState('')
@@ -15,19 +16,39 @@ function ShowItem(props) {
     const [index, setIndex] = useState('')
 
     console.log(user?.favorites, checked);
+    console.log(props)
+    useEffect(() => {
+        console.log(props)
+        if (props.items) {
+            setAllItems(props.items)
+        }
+    }, [props])
 
 
     async function handleSubmit(e) {
         e.preventDefault();
+
+
 
         props.editthisitem({
             itemName: newItem,
             quantity: quantity,
             index,
             id: id,
-        });
+        })/*.then(items => {
+            console.log(items, allItems)
+            let copyItems = [...allItems]
+            copyItems.push({
+                itemName: newItem,
+                quantity: quantity,
+                index,
+                id: id,
+            })
+            setAllItems(copyItems)*/
+        //})
         console.log("edit!")
         setModalIsOpen(!modalIsOpen);
+
     }
     async function edit(each, i) {
         setModalIsOpen(!modalIsOpen);
@@ -42,9 +63,12 @@ function ShowItem(props) {
         //console.log(checked)
         setUser(res?.data)
     }
+
+
+
     const showAllItems = () => {
         console.log(props)
-        return props.items.map((eachItem, i) => {
+        return allItems?.map((eachItem, i) => {
             console.log(eachItem._id)
             let isFavorite = false;
             if (user?.favorites?.includes(eachItem._id)) {
@@ -98,7 +122,7 @@ function ShowItem(props) {
                                 required
                                 name="Name"
                             />
-                            <button id="addGoalButton">Edit Item</button>
+                            <button id="addGoalButton">Edit Item!!!</button>
 
                         </form>
                     </Modal>

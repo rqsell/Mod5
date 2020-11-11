@@ -37,7 +37,7 @@ function AddItems(props) {
     let res = await actions.editanitem(data);
     let index = data.index;
     console.log(res);
-    let updatedItems = [...item];
+    let updatedItems = [...items];
     updatedItems.splice(index, 1, data);
     setItems(updatedItems);
   }
